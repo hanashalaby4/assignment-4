@@ -80,9 +80,9 @@ int LinkedList::sum() {
 	return sum;
 }
 
-LinkedList LinkedList::fromVector(const vector <int>& v) {
+static LinkedList fromVector(const std::vector<int>& v) {
 	LinkedList list;
-	for (const vector<int>::iterator it = v.begin(); it != v.end();++it) {
+	for (vector<int>::const_iterator it = v.begin(); it != v.end(); ++it) {
 
 	}
 
