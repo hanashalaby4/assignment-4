@@ -3,9 +3,9 @@
 #include "LinkedList.h"
 using namespace std;
 
-LinkedList::LinkedList() : head(nullptr) {}
+LinkedList::LinkedList() : head(nullptr) {} //constructor
 
-LinkedList::~LinkedList()
+LinkedList::~LinkedList() //destructor
 {
 	Node* current = head;
 	while (current)
@@ -16,7 +16,7 @@ LinkedList::~LinkedList()
 	}
 }
 
-void LinkedList::add(int v, int o) {
+void LinkedList::add(int v, int o) { //adds a node to the list
 	Node* newNode = new Node;
 	newNode->value = v;
 	newNode->occurences = o;
@@ -37,7 +37,7 @@ void LinkedList::add(int v, int o) {
 	}
 }
 
-void LinkedList::remove(int v) {
+void LinkedList::remove(int v) { //removes a node given a its value
 	if (!head)
 		return;
 
@@ -61,7 +61,7 @@ void LinkedList::remove(int v) {
 
 }
 
-void LinkedList::print()const {
+void LinkedList::print() const { //prints the nodes
 	Node* current = head;
 	while (current) {
 		cout << current->value << " (" << current->occurences << ") -> ";
@@ -80,10 +80,13 @@ int LinkedList::sum() {
 	return sum;
 }
 
-static LinkedList fromVector(const std::vector<int>& v) {
-	LinkedList list;
-	for (vector<int>::const_iterator it = v.begin(); it != v.end(); ++it) {
-
+static LinkedList fromVector(const std::vector<int>& v) { //static so the function can be used without
+	LinkedList list;                                      //having objects of the class LinkedList, given the function recieves a vector
+	for (vector<int>::const_iterator it = v.begin(); it != v.end(); ++it) { //iteration through vector
+		int value = *it;
+		int o = count(v.begin(), v.end(), value); //counts the value's repetitions in the vector from v.begin to v.end
+												  // and stores it in the variable o
+		list.add(value, o); //adds a node to the linked list with the value and its occurences
 	}
-
+	return list; //returns the list
 }
