@@ -7,17 +7,24 @@
 
 
 #include <iostream>
-using namespace std;
 #include "LinkedList.h"
-
-void insertAfter();
+#include <vector>
+using namespace std;
+void insertAfter(vector<int>& v, int first, int second);
 
 void main()
 {
 
 }
 
-void insertAfter()
+void insertAfter(vector<int>& v, int first, int second)
 {
-
+	for (vector<int>::iterator it = v.begin();it!=v.end(); it++) //iterates through the vector
+	{
+		if (*it == first) {
+			v.insert(it + 1, second); //inserts the second value specified directly after the first occurence
+									  //of the first value specified
+			it++;					  //skips the second value that was just inserted and checks for the rest of the vector
+		}
+	}
 }
