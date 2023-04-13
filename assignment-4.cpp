@@ -12,9 +12,36 @@
 using namespace std;
 void insertAfter(vector<int>& v, int first, int second);
 
-void main()
-{
 
+int main()
+{
+	int n;
+	cout << "Please enter the number of integers: " << endl;
+	cin >> n;
+
+	vector <int> v(n);
+
+	cout << "Please enter " << n << " integers: " << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> v[i];
+	}
+
+	int firstValue, secondValue;
+	cout << "Enter the first value: " << endl;
+	cin >> firstValue;
+	cout << "Enter the second value: " << endl;
+	cin >> secondValue;
+
+	insertAfter(v, firstValue, secondValue);
+
+	LinkedList list = LinkedList::fromVector(v);
+	list.print();
+
+	
+	cout << "The sum of all the integers: " << list.sum() << endl;
+
+	return 0;
 }
 
 void insertAfter(vector<int>& v, int first, int second)
@@ -28,3 +55,4 @@ void insertAfter(vector<int>& v, int first, int second)
 		}
 	}
 }
+

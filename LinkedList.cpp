@@ -80,7 +80,7 @@ int LinkedList::sum() {
 	return sum;
 }
 
-static LinkedList fromVector(const std::vector<int>& v) { //static so the function can be used without
+LinkedList LinkedList::fromVector(const std::vector<int>& v) { //static so the function can be used without
 	LinkedList list;                                      //having objects of the class LinkedList, given the function recieves a vector
 	for (vector<int>::const_iterator it = v.begin(); it != v.end(); ++it) { //iteration through vector
 		int value = *it;
