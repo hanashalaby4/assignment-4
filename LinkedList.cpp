@@ -4,6 +4,7 @@
 using namespace std;
 
 LinkedList::LinkedList() : head(nullptr) {}
+
 LinkedList::~LinkedList()
 {
 	Node* current = head;
@@ -14,6 +15,7 @@ LinkedList::~LinkedList()
 		current = temp;
 	}
 }
+
 void LinkedList::add(int v, int o) {
 	Node* newNode = new Node;
 	newNode->value = v;
@@ -34,6 +36,7 @@ void LinkedList::add(int v, int o) {
 		current->next = newNode;
 	}
 }
+
 void LinkedList::remove(int v) {
 	if (!head)
 		return;
@@ -54,6 +57,33 @@ void LinkedList::remove(int v) {
 		Node* temp = current->next;
 		current->next = current->next->next;
 		delete temp;
+	}
+
+}
+
+void LinkedList::print()const {
+	Node* current = head;
+	while (current) {
+		cout << current->value << " (" << current->occurences << ") -> ";
+		current = current->next;
+	}
+	cout << "empty list" << endl;
+}
+
+int LinkedList::sum() {
+	int sum = 0;
+	Node* current = head;
+	while (current) {
+		sum += current->value * current->occurences; //adds the value of the node multiplied by the number of times it is repeated to the total
+		current = current->next;
+	}
+	return sum;
+}
+
+LinkedList LinkedList::fromVector(const vector <int>& v) {
+	LinkedList list;
+	for (const vector<int>::iterator it = v.begin(); it != v.end();++it) {
+
 	}
 
 }
