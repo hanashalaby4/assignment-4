@@ -34,8 +34,9 @@ int main()
 	cin >> secondValue;
 
 	insertAfter(v, firstValue, secondValue);
-
+	
 	LinkedList list = LinkedList::fromVector(v);
+	
 	list.print();
 
 	
@@ -46,13 +47,14 @@ int main()
 
 void insertAfter(vector<int>& v, int first, int second)
 {
-	for (vector<int>::iterator it = v.begin();it!=v.end(); it++) //iterates through the vector
+	for (vector<int>::iterator it = v.begin();it!=v.end();it++) //iterates through the vector
 	{
 		if (*it == first) {
-			v.insert(it + 1, second); //inserts the second value specified directly after the first occurence
-									  //of the first value specified
-			it++;					  //skips the second value that was just inserted and checks for the rest of the vector
+			v.insert(it + 1, second); 
+			return;//inserts the second value specified directly after the first occurence
+			//of the first value specified
 		}
+	
 	}
 }
 
